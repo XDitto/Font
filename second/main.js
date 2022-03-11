@@ -199,8 +199,14 @@ const main= ()=>{
     drawMap(size,bonusRecord,robotRecord,bombsRecord);
     button.onclick = function() {
         start_flag=1;
+        if(button.innerHTML=='Restart'){
+            initThings();
+            drawMap(size,bonusRecord,robotRecord,bombsRecord);
+        }
         button.innerHTML='Restart';
         clearInterval(timer);
+        score=0;
+        score_show.innerHTML='得分:0';
         window.onload=timeLimit(30);
       }
     document.addEventListener('keydown', keydown);
