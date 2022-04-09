@@ -8,7 +8,12 @@ import Tips from './components/Tips/Tips';
 import './App.css';
 
 export default class App extends Component {
-  state = { items: JSON.parse(localStorage.getItem('localData')) };
+  state = {
+    items:
+      localStorage.getItem('localData') === null
+        ? []
+        : JSON.parse(localStorage.getItem('localData')),
+  };
 
   addItem = newItem => {
     const { items } = this.state;
